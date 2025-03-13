@@ -1,0 +1,95 @@
+{{ $delay := .Params.duration }}
+{{ $arrows := .Params.arrows }}
+
+{{ with .Site.Data.home.main_slider }}
+{{ if .enable }}
+
+{{ "<!-- Slider Section -->" | safeHTML }}
+<section class="slider-section">
+
+    <div class="rev_slider_wrapper">
+ 
+        <div id="main_slider" class="rev_slider fullwidthabanner" data-duration="{{ $delay }}" data-arrows="{{ $arrows }}" data-version="5.4.5" style="display:none">
+     
+            <ul>
+
+                {{ range $index, $val := .slides }}
+
+                <!-- Slide Structure -->
+                <li data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0"  data-saveperformance="off"  data-title="{{ .title }}">
+            
+
+                    {{ if eq .type "image" }}
+                    <!-- Image Background -->
+                    <img src="{{ .image | absURL }}" alt="{{ .title }}" data-bgposition="center center" data-kenburns="on" data-duration="11000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    {{ end }}
+
+                    {{ if eq .type "video" }}
+                    <!-- Video Background -->
+                    <div class="tp-caption tp-resizeme fullscreenvideo tp-videolayer"
+                    id="slide-{{ add $index 3000 }}-layer-video"
+                    data-x="0"
+                    data-y="0"
+                    data-type="video"
+                    data-responsive_offset="on"
+                    data-frames='[{"delay": 500, "speed": 300, "from": "opacity: 0", "to": "opacity: 1"},
+                    {"delay": "wait", "speed": 300, "to": "opacity: 0"}]'
+    
+                    {{ if .vimeo }}
+                    data-vimeoid="{{ .vimeo }}"
+                    data-videoattributes="title=0&byline=0&portrait=0&api=1"
+                    {{ end }}
+                    {{ if .youtube }}
+                    data-ytid="{{ .youtube }}"
+                    data-videoattributes="version=3&enablejsapi=1&html5=1&hd=1&wmode=opaque&showinfo=0&rel=0&fs=0&controls=0"
+                    {{ end }}
+                    {{ if .html5 }}
+                    data-videomp4="{{ .html5 }}"
+                    {{ end }}
+                    data-videowidth="100%"
+                    data-videoheight="100%"
+                    data-videoloop="true"
+                    data-forceCover="1"
+                    data-aspectratio="16:9"
+                    data-paddingtop="[0,0,0,0]"
+                    data-paddingright="[0,0,0,0]"
+                    data-paddingbottom="[0,0,0,0]"
+                    data-paddingleft="[0,0,0,0]"
+                    data-autoplay="on"
+                    data-nextslideatend="true"
+                    data-volume="mute"
+                    data-forcerewind="on"
+                    style="z-index: 5;pointer-events:none;">
+                    </div>
+                    {{ end }}
+
+                    <!-- Slide Title -->
+                    <div class="tp-caption tp-resizeme"
+                    
+                        data-frames='[{"delay": 500, "speed": 300, "from": "opacity: 0", "to": "opacity: 1"},
+                                    {"delay": "wait", "speed": 300, "to": "opacity: 0"}]'
+                    
+                        data-x="center"
+                        data-y="center"
+                        data-hoffset="0"
+                        data-voffset="0"
+                        data-width="['auto']"
+                        data-height="['auto']"
+                        style="z-index:5;font-family:'Dosis';font-size: 35px;font-weight: 300;letter-spacing: 9px;line-height: 22px;"                
+                    >{{ .title }}</div>
+
+
+                </li>
+
+                {{ end }}
+
+            </ul>
+     
+        </div>
+     
+    </div>
+
+</section>
+
+{{ end }}
+{{ end }}
