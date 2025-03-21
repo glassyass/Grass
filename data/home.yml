@@ -4,7 +4,7 @@
 ### Parallax [parallaxSection]
 parallax:
   enable: true
-  image: "/images/slider/no4.jpg"
+  image: "/images/slider/Landscape1.png"
   title: ""
   effectTitle: "slideInLeft" # Full list effects you can find in documentation theme
   parallaxVideo: "hide" # If "parallaxVideo" is "show"
