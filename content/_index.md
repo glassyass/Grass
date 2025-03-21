@@ -1,5 +1,5 @@
 ---
-title: FrostFire Images
+title: Wildrose Landscaping
 # Content section
 sections:
   - parallaxSection
@@ -8,7 +8,7 @@ sections:
 # Configuration for sections
 
 # Parallax
-parallaxImage: images/temp.jpg
+parallaxImage: images/Landscape1.png
 parallaxTitle: ""
 effectTitle: "none" # Full list effects you can find in documentation theme
 parallaxVideo: "hide" # Support YouTube and Vimeo video 
